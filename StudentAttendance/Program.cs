@@ -8,12 +8,6 @@ namespace StudentAttendance
     {
         public static void Main()
         {
-            Program program = new Program();
-            program.Run();
-            Console.ReadLine();
-        }
-        private void Run()
-        {
             //The program should print out the names of students that have more than six quiz scores.
             List<Student> studentList = CreateStudentList();
             foreach (var student in studentList)
@@ -26,11 +20,11 @@ namespace StudentAttendance
             Console.ReadLine();
         }
 
-        private List<Student> CreateStudentList()
+        public static List<Student> CreateStudentList()
         {
             List<Student> studentList = new List<Student>();
 
-            foreach (string line in File.ReadLines(@"C:\Users\Cailie\Documents\Visual Studio 2017\Projects\CailieAC\CoderGirl-StudentAverage\studentdata.txt"))
+            foreach (string line in File.ReadLines(@"studentdata.txt"))
             {
                 Student student = CreateStudent(line);
                 studentList.Add(student);
@@ -38,7 +32,7 @@ namespace StudentAttendance
             return studentList;
         }
 
-        private Student CreateStudent(string line)
+        public static Student CreateStudent(string line)
         {
             Student student = new Student();
             string[] properties = line.Split(" ");
